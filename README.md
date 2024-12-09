@@ -37,7 +37,7 @@ This will create a folder in your local working directory. This folder is a loca
 
 ### Step 2
 
-Your problem set is fully described in the notebook `_ps_set_01.qmd`. 
+Your problem set is fully described in the notebook `_ps_set_01.qmd`.
 
 You can open `.qmd` using RStudio 
 
