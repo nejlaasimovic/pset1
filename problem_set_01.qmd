@@ -1,0 +1,69 @@
+---
+title: "Text as Data: Problem Set 01"
+author: "Professor Tiago Ventura"
+execute: 
+  error: true
+format:
+  html
+editor_options: 
+  chunk_output_type: console
+theme: default
+---
+
+## Instructions
+
+To complete this homework, you have two options. 
+
+You can either complete this assignment using a **dataset of your choice**. This is a great opportunity for you to start working with a dataset that you can potentially use for your final project. 
+
+Your second option is to use the tweets dataset we have used in class. You can download the dataset [here](https://www.dropbox.com/scl/fi/l5rc7nptc23en7fj1halz/tweets_congress.csv?rlkey=joqnuldgh3xanx8y9h8wvkf8p&dl=0)
+
+**IMPORTANT:** Remember to NOT commit your data to github. Github does not allow you to push large datasets to remote repositories. If you commit your dataset, you will need to reset your commit, and that's always a bit of work. In addition, remember that your notebook should be compiled with the results of the code blocks. 
+
+## Question 1 
+
+Take a small a sample of your documents and read them carefully. This sample don't need to be random. Select cases that are more interesting, and close to your theoretical interest in this dataset. What are you thoughts about these documents? What did you learn after reading them?
+
+```{r}
+library(ggplot2)
+
+# Sample data
+data <- data.frame(values = rnorm(100))
+
+# Create histogram
+ggplot(data, aes(x = values)) +
+  geom_histogram(binwidth = 0.5, fill = "blue", color = "black")
+```
+
+## Question 2 
+
+Tokenize your documents and pre-process them, removing any "extraneous" content you noticed in closely reading a sample of your documents. 
+What content have you removed and why? Any pre-processing steps from what you saw in class that you consider not to use here? 
+
+
+## Question 3
+
+Using [Danny and Spirling's Pretext](https://github.com/matthewjdenny/preText), tell me which of the pre-processing steps makes a more substantive difference in the data transformation? Would you keep all these steps or would you follow the PreText recommendations? Use a sample of the data to solve this question. 
+
+## Question 4 
+
+Pick an important source of variation in your data (for example: date, author identity, location, etc.). Subset the data along this dimension, and discuss which words discriminate better each group. You can do this by using TF-IDF, PMI, log(share $word_i$ in group a/share $word_i$ in b), or create a measure similar to Ban's article. 
+
+## Question 5
+
+Create a dictionary (or use a pre-existing dictionary) to measure a topic of interest in your data. It can be anything, sentiment, tone, misinformation, any topic of interest. Label your documents, and visualize the prevalence of your classes. 
+
+
+## Question 6
+
+Pick some documents (at least 10 for each class) that are exemplar (high probability) of being for each class of your dictionary. Read these documents.  Now let's try to augment a little your classifier.
+
+### Question 6.1
+
+Using cosine similarity, grab the closest 10 documents to each reference document you read before. Read those. How well does the cosine similarity work? Try with another measure of distance. Anything interesting there? 
+
+
+### Question 6.2
+
+Now, check qualitative these documents. Take a look at the top features, Keyword in Context, Higher TF-IDF. Would you change anything in your dictionary now that you looked in these documents?
+
